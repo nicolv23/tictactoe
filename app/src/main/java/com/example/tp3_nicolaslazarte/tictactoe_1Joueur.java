@@ -10,9 +10,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class tictactoe_1Joueur extends AppCompatActivity {
 
@@ -21,7 +23,7 @@ public class tictactoe_1Joueur extends AppCompatActivity {
     private int [] positionsTableau = {0,0,0,0,0,0,0,0,0};
 
     private int tourJoueur = 1;
-    private int casesSelectionnes = 1;
+    private int casesSelectionnes = 0;
 
     private LinearLayout joueur1Tableau;
     private TextView joueur1Nom;
@@ -41,7 +43,6 @@ public class tictactoe_1Joueur extends AppCompatActivity {
         joueur1Nom = findViewById(R.id.joueur1Nom);
 
         joueur1Tableau = findViewById(R.id.joueur1Tableau);
-
 
         joueur1Points = findViewById(R.id.joueur1Points);
 
@@ -77,5 +78,155 @@ public class tictactoe_1Joueur extends AppCompatActivity {
             }
         });
 
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(0, (ImageView)v);
+            }
+        });
+
+        image2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(1, (ImageView)v);
+            }
+        });
+
+        image3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(2, (ImageView)v);
+            }
+        });
+
+        image4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(3, (ImageView)v);
+            }
+        });
+
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(4, (ImageView)v);
+            }
+        });
+
+        image6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(5, (ImageView)v);
+            }
+        });
+
+        image7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(6, (ImageView)v);
+            }
+        });
+
+        image8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(7, (ImageView)v);
+            }
+        });
+
+        image9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouerCoup(8, (ImageView)v);
+            }
+        });
+    }
+
+    // Méthode pour gérer le tour du joueur
+    private void jouerCoup(int position, ImageView imageView) {
+        if (casesSelectionnes < 9 && caseSelectionne(position)) {
+            casesSelectionnes++;
+            positionsTableau[position] = tourJoueur;
+            imageView.setImageResource(R.drawable.x); // ou autre symbole pour le joueur
+
+            // Vérifier si le joueur a gagné
+            if (verifierJoueurGagnant()) {
+                Toast.makeText(this, "Joueur gagnant!", Toast.LENGTH_SHORT).show();
+                // Réinitialiser le jeu ou retourner au menu principal
+            } else if (casesSelectionnes == 9) {
+                Toast.makeText(this, "Match nul!", Toast.LENGTH_SHORT).show();
+                // Réinitialiser le jeu ou retourner au menu principal
+            } else {
+                // Passer au tour de l'IA
+                jouerCoupIA();
+            }
+        }
+    }
+
+    private void jouerCoupIA() {
+        Random random = new Random();
+        int position;
+        do {
+            position = random.nextInt(9); // Sélectionner une position aléatoire
+        } while (!caseSelectionne(position));
+
+        positionsTableau[position] = 2; // Supposons que 2 représente l'IA
+        ImageView imageView = null;
+        switch (position) {
+            case 0:
+                imageView = image1;
+                break;
+            case 1:
+                imageView = image2;
+                break;
+            case 2:
+                imageView = image3;
+                break;
+            case 3:
+                imageView = image4;
+                break;
+            case 4:
+                imageView = image5;
+                break;
+            case 5:
+                imageView = image6;
+                break;
+            case 6:
+                imageView = image7;
+                break;
+            case 7:
+                imageView = image8;
+                break;
+            case 8:
+                imageView = image9;
+                break;
+        }
+        if (imageView != null) {
+            imageView.setImageResource(R.drawable.cercle); // ou autre symbole pour l'IA
+        }
+
+        // Vérifier si l'IA a gagné
+        if (verifierJoueurGagnant()) {
+            Toast.makeText(this, "L'IA a gagné!", Toast.LENGTH_SHORT).show();
+            // Réinitialiser le jeu ou retourner au menu principal
+        } else if (casesSelectionnes == 9) {
+            Toast.makeText(this, "Match nul!", Toast.LENGTH_SHORT).show();
+            // Réinitialiser le jeu ou retourner au menu principal
+        }
+    }
+
+    private boolean caseSelectionne(int position) {
+        return positionsTableau[position] == 0;
+    }
+
+    private boolean verifierJoueurGagnant() {
+        for (int[] combinaison : listeCombinaisons) {
+            if (positionsTableau[combinaison[0]] == positionsTableau[combinaison[1]] &&
+                    positionsTableau[combinaison[1]] == positionsTableau[combinaison[2]] &&
+                    positionsTableau[combinaison[0]] != 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }
