@@ -16,11 +16,20 @@ public class DialogueVictoire extends Dialog {
      */
     private final String message;
     private final TicTacToe tictactoe;
+    private final tictactoe_1Joueur ticTacToe1Joueur;
 
     public DialogueVictoire(@NonNull Context context, String message, TicTacToe tictactoe) {
         super(context);
         this.message = message;
         this.tictactoe = tictactoe;
+        this.ticTacToe1Joueur = null;
+    }
+
+    public DialogueVictoire(@NonNull Context context, String message, tictactoe_1Joueur ticTacToe1Joueur) {
+        super(context);
+        this.message = message;
+        this.ticTacToe1Joueur = ticTacToe1Joueur;
+        this.tictactoe = null;
     }
 
     /**
@@ -41,10 +50,13 @@ public class DialogueVictoire extends Dialog {
         recommencerPartie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tictactoe.nouvellePartie();
+                if (tictactoe != null) {
+                    tictactoe.nouvellePartie();
+                } else if (ticTacToe1Joueur != null) {
+                    ticTacToe1Joueur.reinitialiserPartie();
+                }
                 dismiss();
             }
         });
     }
-
 }

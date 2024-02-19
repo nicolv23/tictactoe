@@ -26,11 +26,17 @@ public class tictactoe_1Joueur extends AppCompatActivity {
     private int casesSelectionnes = 0;
 
     private LinearLayout joueur1Tableau;
+
+    private EditText joueur1Points;
+
+    protected int pointageJoueur1;
+
     private TextView joueur1Nom;
     private ImageView image1, image2, image3, image4, image5,
             image6, image7, image8, image9;
-    private EditText joueur1Points;
-    protected int pointageJoueur1;
+
+    // Déclaration du bouton pour recommencer la partie
+    private Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,16 @@ public class tictactoe_1Joueur extends AppCompatActivity {
         setContentView(R.layout.activity_tictactoe1_joueur);
 
         final Button menuPrincipale = findViewById(R.id.menu);
-        final Button recommencer = findViewById(R.id.reset);
+
+        // Initialisation du bouton pour recommencer la partie
+        resetButton = findViewById(R.id.reset);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Appel de la méthode pour recommencer la partie
+                recommencerPartie();
+            }
+        });
 
         joueur1Nom = findViewById(R.id.joueur1Nom);
 
@@ -149,13 +164,17 @@ public class tictactoe_1Joueur extends AppCompatActivity {
             positionsTableau[position] = tourJoueur;
             imageView.setImageResource(R.drawable.x); // ou autre symbole pour le joueur
 
-            // Vérifier si le joueur a gagné
+            // Après avoir vérifié si un joueur a gagné ou si la partie est nulle
             if (verifierJoueurGagnant()) {
-                Toast.makeText(this, "Joueur gagnant!", Toast.LENGTH_SHORT).show();
-                // Réinitialiser le jeu ou retourner au menu principal
+                // Afficher le dialogue de victoire pour le joueur actuel
+                DialogueVictoire gagnant = new DialogueVictoire(this, getResources().getString(R.string.joueur_gagnant), this);
+                gagnant.setCancelable(false);
+                gagnant.show();
             } else if (casesSelectionnes == 9) {
-                Toast.makeText(this, "Match nul!", Toast.LENGTH_SHORT).show();
-                // Réinitialiser le jeu ou retourner au menu principal
+                // Afficher le dialogue de partie nulle
+                DialogueVictoire partieNulle = new DialogueVictoire(this, getResources().getString(R.string.partie_nulle), this);
+                partieNulle.setCancelable(false);
+                partieNulle.show();
             } else {
                 // Passer au tour de l'IA
                 jouerCoupIA();
@@ -209,9 +228,11 @@ public class tictactoe_1Joueur extends AppCompatActivity {
         if (verifierJoueurGagnant()) {
             Toast.makeText(this, "L'IA a gagné!", Toast.LENGTH_SHORT).show();
             // Réinitialiser le jeu ou retourner au menu principal
+            reinitialiserPartie();
         } else if (casesSelectionnes == 9) {
             Toast.makeText(this, "Match nul!", Toast.LENGTH_SHORT).show();
             // Réinitialiser le jeu ou retourner au menu principal
+            reinitialiserPartie();
         }
     }
 
@@ -229,4 +250,31 @@ public class tictactoe_1Joueur extends AppCompatActivity {
         }
         return false;
     }
+
+    public void reinitialiserPartie() {
+        // Réinitialiser les positions du tableau, le tour du joueur et les cases sélectionnées
+        positionsTableau = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+        tourJoueur = 1;
+        casesSelectionnes = 0;
+        // Réinitialiser les images des cases
+        image1.setImageResource(R.drawable.carre);
+        image2.setImageResource(R.drawable.carre);
+        image3.setImageResource(R.drawable.carre);
+        image4.setImageResource(R.drawable.carre);
+        image5.setImageResource(R.drawable.carre);
+        image6.setImageResource(R.drawable.carre);
+        image7.setImageResource(R.drawable.carre);
+        image8.setImageResource(R.drawable.carre);
+        image9.setImageResource(R.drawable.carre);
+    }
+
+    private void recommencerPartie() {
+        // Réinitialiser les points du joueur
+        pointageJoueur1 = 0;
+        // Mettre à jour l'affichage des points
+        joueur1Points.setText("0");
+        // Réinitialiser la partie
+        reinitialiserPartie();
+    }
+
 }
