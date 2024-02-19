@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tic-Tac-Toe Game</string>
+    <string name="_1_joueur">1 Player</string>
+    <string name="_2_joueurs">2 Players</string>
+    <string name="comment_jouer">How to Play</string>
+    <string name="quitter_jeu">Exit Game</string>
+    <string name="rotation_ecran">Rotate Screen</string>
+    <string name="instructions">Tic-tac-toe is a game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. It is a solved game, with a forced draw assuming best play from both players.</string>
+    <string name="retour_au_menu_principal">Back To Main Menu</string>
+    <string name="message_affiche">Message displayed here</string>
+    <string name="recommencer_la_partie">Rematch</string>
+    <string name="entrez_nom_joueur">Enter Player 1 Name</string>
+    <string name="joueur_1">Player 1:</string>
+    <string name="demarrer_jeu">Start Game</string>
+    <string name="retour">Back</string>
+    <string name="joueur_2">Player 2:</string>
+    <string name="menu_principal">Main Menu</string>
+    <string name="r_initialiser">Reset</string>
+    <string name="entrez_noms_joueurs">Enter Player Names</string>
+    <string name="champ_vides_joueurs">Please enter Player names</string>
+    <string name="champ_vide_joueur">Please enter Player name</string>
+    <string name="joueur_gagnant">has won the match</string>
+    <string name="partie_nulle">Draw</string>
+    <string name="pointage_reinitialises">Scores are reset</string>
+    <string name="joueur_debut_partie">is going to start first</string>
+    <string name="joueur_debut_partieDefaut">is going to start first by default</string>
+</resources>

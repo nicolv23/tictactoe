@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_jeu"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    tools:context=".Menu">
+
+    <Button
+        android:id="@+id/jeu1Joueur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/_1_joueur"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="229dp" />
+
+    <Button
+        android:id="@+id/jeu2Joueurs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/_2_joueurs"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+
+    <Button
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/comment_jouer"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="408dp" />
+
+    <Button
+        android:id="@+id/quitterJeu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/quitter_jeu"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <Button
+        android:id="@+id/rotationEcran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/rotation_ecran"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="315dp" />
+</LinearLayout>

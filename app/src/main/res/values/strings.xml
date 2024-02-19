@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Tic-Tac-Toe Jeu</string>
+    <string name="_1_joueur">1 Joueur</string>
+    <string name="_2_joueurs">2 Joueurs</string>
+    <string name="comment_jouer">Comment Jouer</string>
+    <string name="quitter_jeu">Quitter Jeu</string>
+    <string name="rotation_ecran">Rotation Écran</string>
+    <string name="instructions">Le tic-tac-toe est un jeu pour deux joueurs qui marquent à tour de rôle les espaces d\'une grille de trois par trois avec X ou O. Le joueur qui réussit à placer trois de ses marques dans une rangée horizontale, verticale ou diagonale est le gagnant. Il s\'agit d\'un jeu résolu, avec un tirage au sort forcé en supposant le meilleur jeu des deux joueurs.</string>
+    <string name="retour_au_menu_principal">Retour au Menu Principal</string>
+    <string name="message_affiche">Message indique ici</string>
+    <string name="recommencer_la_partie">Recommencer la partie</string>
+    <string name="entrez_nom_joueur">Entrez le nom du Joueur</string>
+    <string name="joueur_1">Joueur 1:</string>
+    <string name="demarrer_jeu">Démarrer Jeu</string>
+    <string name="retour">Retour</string>
+    <string name="entrez_noms_joueurs">Entrez les noms des Joueurs</string>
+    <string name="joueur_2">Joueur 2:</string>
+    <string name="menu_principal">Menu Principal</string>
+    <string name="r_initialiser">Réinitialiser</string>
+    <string name="champ_vides_joueurs">Veuillez entrer les noms des Joueurs</string>
+    <string name="champ_vide_joueur">Veuillez entrer le nom du Joueur</string>
+    <string name="joueur_gagnant">a gagné la partie</string>
+    <string name="partie_nulle">Partie nulle</string>
+    <string name="pointage_reinitialises">Pointage réinitialisés</string>
+    <string name="joueur_debut_partie">va commencer en premier</string>
+    <string name="joueur_debut_partieDefaut">va commencer en premier par défaut</string>
+</resources>
